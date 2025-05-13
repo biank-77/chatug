@@ -1,8 +1,4 @@
-interface User {
-    id: string;
-    name: string;
-    email: string;
-}
+import { User } from "../types/user";
 
 // Datos ficticios simulando una base de datos
 const users: User[] = [
