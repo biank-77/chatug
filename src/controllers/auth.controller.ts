@@ -8,6 +8,7 @@ const secret = process.env.JWT_SECRET || 'super-secret-key';
 export const login = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const {email, password} = req.body
+        console.log(email, password)
         const userInfo = await AuthServices.loginUser(email, password);
         if(!userInfo){
             res.status(404).json({error:"Not user found"})
@@ -28,7 +29,7 @@ export const register = async (req: Request, res: Response, next: NextFunction) 
             res.status(400).json({error:"User not saved"})
         }
         else{
-            res.json({userInfo});
+            res.json(userInfo);
         }
     } catch (error) {
         next(error);
