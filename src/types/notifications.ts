@@ -1,6 +1,12 @@
 export interface Notification {
     message: string,
     image?: string,
-    userId: string,
+    imageName?: string,
+    user: {
+        name: string,
+        email: string,
+        id?: string
+    },
+    userId?: string,
     createdDate: Date
 }
