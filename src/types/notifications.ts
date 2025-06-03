@@ -10,3 +10,11 @@ export interface Notification {
     userId?: string,
     createdDate: Date
 }
+
+
+export enum NotificationType {
+    Practica ="practica",
+    Vinculacion = "vinculacion",
+    Tutoria = "tutoria",
+    General = "general"
+}

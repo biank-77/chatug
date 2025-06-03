@@ -2,11 +2,11 @@ import fs from 'fs';
 import path from 'path';
 import { DB } from "../lib/firestore";
 import { BCK, BUCKET_NAME } from "../lib/storage";
-import { Notification } from "../types/notifications";
+import { Notification, NotificationType } from "../types/notifications";
 
 
-export const getNotifications = async (): Promise<Notification[]|[]> => {
-        const docRef = DB.collection('notifications').orderBy("createdDate", "desc")
+export const getNotifications = async (type:NotificationType): Promise<Notification[]|[]> => {
+        const docRef = DB.collection('notifications').where("type", "==", type).orderBy("createdDate", "desc")
         const docsContainer = await docRef.get();
         if (!docsContainer.size) return [];
         const docs = []
