@@ -6,10 +6,10 @@ const expo = new Expo();
 
 export async function sendPushNotification(token:string, titulo:string, cuerpo:string) {
   // Verifica que el token es válido
-//   if (!Expo.isExpoPushToken(token)) {
-//     console.error(`Push token inválido: ${token}`);
-//     return;
-//   }
+  if (!Expo.isExpoPushToken(token)) {
+    console.error(`Push token inválido: ${token}`);
+    return;
+  }
 
   const messages = [
     {
@@ -24,7 +24,7 @@ export async function sendPushNotification(token:string, titulo:string, cuerpo:s
   try {
     const chunks = expo.chunkPushNotifications(messages);
     const tickets = [];
-
+console.log("hmmmm???")
     for (let chunk of chunks) {
       const ticketChunk = await expo.sendPushNotificationsAsync(chunk);
       console.log(ticketChunk);
