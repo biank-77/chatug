@@ -61,3 +61,4 @@ const storeImageOnBucket = async(imageName: string, tempFilePath:string, extensi
     });
 
 }
+
